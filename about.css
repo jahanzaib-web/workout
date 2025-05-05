@@ -1,0 +1,155 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .about-section {
+    background-color: #1f2b35;
+    color: #ffffff;
+  }
+  
+  .about-section p {
+    max-width: 500px;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .chevrons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .chevron {
+    width: 30px;
+    height: 30px;
+    background-color: #3a6b82;
+    clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 0% 100%, 25% 50%, 0% 0%);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .chevron:hover {
+    transform: scale(1.1);
+  }
+  
+  @media (max-width: 768px) {
+    .about-section {
+      text-align: center;
+    }
+    .chevrons {
+      justify-content: center;
+    }
+  }
+  /* new */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #111;
+  }
+  
+  .gym-section {
+    background-color: #2c3e50;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    animation: fadeInDown 1s ease both;
+  }
+  
+  .facility-img {
+    overflow: hidden;
+    border-radius: 10px;
+    animation: zoomIn 1s ease both;
+  }
+  
+  .facility-img img {
+    transition: transform 0.5s ease;
+  }
+  
+  .facility-img:hover img {
+    transform: scale(1.05);
+  }
+  
+  /* Animations */
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes zoomIn {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .animate__fadeInDown {
+    animation: fadeInDown 1s ease both;
+  }
+  
+  .animate__zoomIn {
+    animation: zoomIn 1s ease both;
+  }
+  /* another section */
+  /* Trainers Section Styling */
+.trainers-section {
+    background-color: #a1a7ad; /* Dark blue-grey background */
+}
+
+.section-title {
+    font-weight: bold;
+    font-size: 2.5rem; /* Adjust title size as needed */
+    text-transform: uppercase;
+}
+
+.trainer-card {
+    /* Add any specific card styling if needed,
+       like background or borders, but keeping it simple now */
+}
+
+.trainer-img {
+    max-width: 100%; /* Ensure image doesn't overflow column */
+    height: auto;
+    /* Optional: Add border or other effects */
+    /* border: 3px solid #fff; */
+    /* border-radius: 50%; */ /* Uncomment for circular images */
+}
+
+.trainer-name {
+    color: #ffffff; /* White text for names */
+    margin-top: 0.5rem; /* Space between image and name */
+    font-weight: bold;
+    text-transform: uppercase; /* Match the image style */
+    font-size: 1.2rem; /* Adjust name size as needed */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767.98px) {
+    .section-title {
+        font-size: 2rem; /* Smaller title on mobile */
+    }
+     /* Add space between stacked cards on mobile */
+    .trainer-card {
+       margin-bottom: 1.5rem;
+    }
+     /* Remove bottom margin from last card when stacked */
+    .row > div:last-child .trainer-card {
+        margin-bottom: 0;
+    }
+}
+  

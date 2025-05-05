@@ -1,0 +1,426 @@
+/* --- Base Hero Section Styles (Same as before) --- */
+.hero-section {
+  /* Replace with your actual image path */
+  background-image: url(Blue\ and\ Grey\ Simple\ Dark\ Fitness\ Event\ Website\ \(1\).png);
+  background-size: cover;
+  background-position: center 60%; /* Adjusted slightly */
+  background-repeat: no-repeat;
+  min-height: 75vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow-x: hidden; /* Prevent horizontal scrollbars from animations */
+  /* filter: grayscale(100%); */ /* Uncomment if image isn't B&W */
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.45); /* Slightly darker overlay */
+  z-index: 1;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-section .event-title {
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.hero-section .main-title {
+  line-height: 1.1;
+}
+
+/* --- Animation Setup --- */
+
+/* Define Keyframes */
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+.hello{
+  padding: 10px 40px;
+  border-radius: 20px;
+font-size: 25px;}
+  .hello:hover{
+    background-color: rgb(4, 5, 5);
+    color: cornsilk;
+
+  }
+  
+
+
+
+/* Base state for animated elements (initially hidden) */
+.animate-on-load {
+  opacity: 0;
+  /* Apply animation properties */
+  animation-duration: 0.8s; /* Adjust duration */
+  animation-timing-function: ease-out; /* Smooth easing */
+  animation-fill-mode: forwards; /* Keep styles after animation ends */
+}
+
+/* Specific animation types */
+.animate-on-load.fade-in-up {
+  animation-name: fadeInUp;
+}
+
+.animate-on-load.fade-in {
+  animation-name: fadeIn;
+}
+
+/* Staggered Delays */
+.animate-on-load.delay-1 { animation-delay: 0.2s; }
+.animate-on-load.delay-2 { animation-delay: 0.4s; }
+.animate-on-load.delay-3 { animation-delay: 0.6s; }
+.animate-on-load.delay-4 { animation-delay: 0.7s; } /* Slightly closer to previous */
+.animate-on-load.delay-5 { animation-delay: 0.9s; }
+
+
+/* --- Responsive Adjustments (Same as before, minor tweaks maybe) --- */
+@media (max-width: 767.98px) {
+  .hero-section {
+      min-height: 65vh; /* Adjust as needed */
+      text-align: center;
+      background-position: center center;
+  }
+
+  .hero-section .row {
+      justify-content: center;
+  }
+
+   .hero-section .main-title {
+      font-size: 2.5rem; /* Adjust if needed */
+  }
+
+   .hero-section .lead {
+      font-size: 1rem;
+  }
+
+  .hero-section .btn {
+       margin-left: auto;
+       margin-right: auto;
+       display: block; /* Ensure button behaves like block for centering */
+       width: fit-content; /* prevent button taking full width */
+  }
+}
+
+@media (max-width: 575.98px) {
+   .hero-section {
+      min-height: 80vh; /* Make taller on phones */
+  }
+  .hero-section .main-title {
+      font-size: 2rem;
+  }
+   .hero-section .btn {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      font-size: 0.9rem;
+  }
+}
+
+/* Optional: Disable animations if user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+.animate-on-load {
+  animation: none;
+  opacity: 1; /* Make elements visible immediately */
+}
+}
+/* new */
+/* Set background color similar to the image */
+body {
+  background-color: #b6b6b6; /* Light gray background */
+}
+
+.race-section {
+  /* Optional: Add specific background if needed for just the section */
+   /* background-color: #f0f0f0; */
+   overflow-x: hidden; /* Prevent horizontal scrollbars during animation */
+}
+
+/* Style the main heading */
+.race-heading {
+  color: #030303; /* Bootstrap primary blue - adjust if needed */
+  /* Example custom blue: color: #3366cc; */
+  letter-spacing: 2px; /* Add some letter spacing like the original */
+}
+
+/* Custom rounded corners for images */
+.rounded-custom {
+  border-radius: 1.5rem; /* Adjust the radius as needed (e.g., 25px) */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional subtle shadow */
+}
+
+/* Apply grayscale filter to images */
+.race-image {
+  filter: grayscale(100%);
+  max-height: 450px; /* Optional: Limit image height */
+  width: auto; /* Ensure image scales correctly with max-height */
+  max-width: 100%; /* Ensure image doesn't overflow container */
+  object-fit: cover; /* Cover the area nicely */
+}
+
+/* Style the descriptive text */
+.race-text {
+  font-size: 1rem; /* Standard text size */
+  color: #333; /* Darker gray text */
+  line-height: 1.6;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) { /* Below Large (lg) */
+  .race-heading {
+      text-align: center; /* Center heading on medium and smaller screens */
+  }
+  .race-text {
+      padding-left: 0; /* Remove left padding on medium and smaller screens */
+      margin-top: 1.5rem; /* Add space between images and text when text stacks */
+      text-align: center; /* Center text */
+  }
+}
+
+@media (max-width: 767.98px) { /* Below Medium (md) */
+  .race-image {
+       max-height: 400px; /* Slightly smaller max height on smaller screens */
+  }
+  .race-text {
+       text-align: center; /* Ensure text is centered */
+  }
+  .race-heading {
+      font-size: 2.5rem; /* Adjust heading size for smaller screens */
+  }
+}
+/* new */
+/* style.css */
+
+.map-section {
+  overflow: hidden; /* Prevents potential layout issues with animation */
+}
+
+/* Custom Blue Heading Color (approximating the image) */
+.heading-blue {
+  color: #395BFF; /* Adjust this blue color code as needed */
+  line-height: 1.1; /* Adjust line spacing for multi-line heading */
+  font-family: Arial, Helvetica, sans-serif; /* Example font, change if needed */
+  /* You might need a specific font-family to match exactly */
+}
+
+/* Floating Animation */
+@keyframes float {
+  0% {
+      transform: translateY(0px);
+      /* box-shadow: 0 5px 15px 0px rgba(0,0,0,0.1); /* Optional subtle shadow change */
+  }
+  50% {
+      transform: translateY(-10px); /* How high it floats */
+      /* box-shadow: 0 15px 15px 0px rgba(0,0,0,0.05); /* Optional subtle shadow change */
+  }
+  100% {
+      transform: translateY(0px);
+      /* box-shadow: 0 5px 15px 0px rgba(0,0,0,0.1); /* Optional subtle shadow change */
+  }
+}
+
+.float-animation {
+  animation: float 4s ease-in-out infinite; /* Duration, timing, repeats */
+}
+
+/* Optional: Ensure vertical centering is more robust on taller screens */
+@media (min-width: 992px) { /* lg breakpoint */
+  .map-section .row {
+     min-height: 60vh; /* Adjust as needed */
+  }
+  .text-content {
+      /* Additional alignment if needed, but align-items-center on row usually suffices */
+  }
+}
+
+/* Optional: If your original image isn't black and white */
+/*
+.map-section img {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+}
+*/
+/* second last section */
+/* style.css */
+
+/* Section Styling */
+.marathon-buzz {
+  position: relative; /* Needed for pseudo-elements or absolute positioning if required */
+}
+
+/* Custom Blue Color & Title Style */
+.heading-blue {
+  color: #0052FF; /* Adjust blue color as needed */
+  letter-spacing: 0.1em; /* Add letter spacing */
+  font-family: Arial, Helvetica, sans-serif; /* Example font */
+}
+
+/* Individual Card Wrapper */
+.buzz-card {
+  position: relative; /* Crucial for absolute positioning the image */
+  margin-bottom: 50px; /* Space below card, accounts for image height */
+}
+
+/* Circular Image Styling */
+.buzz-card-img {
+  width: 120px; /* Control image size */
+  height: 120px;
+  border-radius: 50%; /* Make it circular */
+  object-fit: cover; /* Ensure image covers the circle without distortion */
+  border: 5px solid white; /* White border effect */
+  background-color: #fff; /* Background in case image is transparent */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow on image */
+  filter: grayscale(100%); /* Make image black and white */
+  -webkit-filter: grayscale(100%);
+
+  /* Positioning the image */
+  position: absolute;
+  top: 0; /* Start at the top of the parent */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Shift left and up by half its size */
+  z-index: 2; /* Make sure image is above the card content */
+}
+
+/* Card Content Box Styling */
+.buzz-card-content {
+  background-color: white;
+  border-radius: 25px; /* Rounded corners */
+  padding: 80px 20px 30px 20px; /* Top padding = half image height + desired space */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); /* Shadow on the card box */
+  position: relative; /* For stacking context and potential pseudo-elements */
+  z-index: 1; /* Below the image */
+  height: 100%; /* Fill the wrapper height (works with d-flex on col) */
+  display: flex; /* Use flexbox for vertical alignment of content */
+  flex-direction: column;
+  justify-content: space-between; /* Pushes icon towards bottom */
+
+  /* Animation */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Card Content Title */
+.buzz-card-content h5 {
+  color: #333;
+  font-family: Arial, Helvetica, sans-serif; /* Example font */
+}
+
+/* Hover Animation for Card Content */
+.buzz-card:hover .buzz-card-content {
+  transform: translateY(-8px); /* Lift the card slightly */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12); /* Increase shadow on hover */
+}
+
+/* Ensure columns behave correctly */
+@media (min-width: 768px) { /* Medium screens and up */
+  .col-md-6.d-flex {
+      /* Reset margin-bottom here if needed, as g-5 on row handles spacing */
+       margin-bottom: 50px; /* Keep space needed for image overlap */
+  }
+}
+
+@media (min-width: 992px) { /* Large screens and up */
+   .col-lg-4.d-flex {
+       margin-bottom: 50px; /* Ensure vertical space */
+   }
+}
+
+@media (max-width: 767.98px) { /* Below medium screens */
+  .buzz-card {
+      /* Add more bottom margin if cards stack too close */
+       margin-bottom: 60px;
+  }
+}
+/* new section */
+/* style.css */
+
+/* Use pure black if desired, otherwise Bootstrap's bg-dark is #212529 */
+.bg-black {
+  background-color: #000000;
+}
+
+.testimonials-section {
+  overflow: hidden; /* Optional: Clear floats or contain margins */
+}
+
+/* Title Styling */
+.section-title-impact {
+  color: #FFFF00; /* Bright yellow */
+  font-family: 'Anton', sans-serif; /* Use Anton font or another impactful one */
+  /* You might need to adjust font-weight if the font itself is bold */
+  /* Optional: Slight skew effect */
+  /* transform: skewX(-5deg); */
+  letter-spacing: 0.05em; /* Add some letter spacing */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Optional subtle shadow */
+}
+
+/* Individual Testimonial Item Wrapper */
+.testimonial-item {
+  margin-bottom: 1.5rem; /* Space below cards when stacking */
+  overflow: hidden; /* Keeps content contained, helps with borders/shadows */
+  /* Animation */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05); /* Subtle shadow for dark bg */
+}
+
+/* Testimonial Image */
+.testimonial-img {
+  display: block; /* Remove any extra space below image */
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  /* You might set a fixed height and use object-fit: cover if needed */
+  /* Example: */
+  /* height: 250px; */
+  /* object-fit: cover; */
+}
+
+/* Yellow Content Box */
+.testimonial-content {
+  background-color: #b4b47c; /* Bright yellow */
+  color: #000000; /* Black text */
+  padding: 1.5rem; /* Adjust padding as needed */
+}
+
+/* Testimonial Text Styling */
+.testimonial-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  font-family: Arial, Helvetica, sans-serif; /* Standard sans-serif */
+}
+
+/* Author Styling */
+.testimonial-author {
+  font-weight: bold;
+  font-size: 0.9rem;
+  font-family: Arial, Helvetica, sans-serif; /* Standard sans-serif */
+  font-style: italic; /* Italicize author name */
+}
+
+/* Hover Animation */
+.testimonial-item:hover {
+  transform: translateY(-6px); /* Lift card slightly on hover */
+  box-shadow: 0 10px 15px rgba(255, 255, 0, 0.15); /* Brighter yellow glow/shadow */
+}

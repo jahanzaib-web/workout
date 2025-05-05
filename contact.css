@@ -1,0 +1,172 @@
+/* Define Custom Colors */
+:root {
+    --form-section-bg: #c2c2c2; /* Light lavender/off-white */
+    --info-section-bg: #575a5a; /* Light teal/mint */
+    --primary-purple: #777777;  /* Main purple for buttons/accents */
+    --primary-purple-darker: #000000; /* Darker purple for hover */
+    --heading-purple: #242424; /* Darker purple for heading */
+    --form-field-bg: #e4e4e4;   /* Light purple for form fields */
+    --form-label-color: #000000;
+    --link-color: #555;
+    --link-hover-color: var(--primary-purple);
+    --plane-color: var(--primary-purple); /* Color for the icon */
+}
+
+body {
+    font-family: sans-serif; /* Basic font stack */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Section Backgrounds */
+.form-section {
+    background-color: var(--form-section-bg);
+}
+
+.info-section {
+    background-color: var(--info-section-bg);
+}
+
+/* Make sections take full height */
+.min-vh-100 {
+    min-height: 100vh;
+}
+
+/* Logo Styling (Example) */
+.logo-text {
+    color: var(--heading-purple);
+}
+
+/* Custom Form Styling */
+.form-custom .form-label {
+    color: var(--form-label-color);
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+}
+
+.form-custom .form-control {
+    background-color: var(--form-field-bg);
+    border: 1px solid var(--form-field-bg); /* Match border to bg */
+    border-radius: 20px; /* Rounded corners */
+    padding: 0.8rem 1rem;
+    color: #333;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Style for when the input is focused */
+.form-custom .form-control:focus {
+    background-color: #fff; /* Optional: change bg on focus */
+    border-color: var(--primary-purple);
+    box-shadow: 0 0 0 0.25rem rgba(140, 122, 170, 0.25); /* Subtle purple glow */
+    outline: none;
+}
+
+/* Remove placeholder opacity default */
+.form-custom .form-control::placeholder {
+  color: transparent; /* Hide placeholder by default */
+}
+
+/* Style textarea */
+.form-custom textarea.form-control {
+    border-radius: 15px; /* Slightly less rounded */
+}
+
+/* Custom Button Styling */
+.btn-submit, .btn-contact {
+    background-color: var(--primary-purple);
+    border-color: var(--primary-purple);
+    color: #fff;
+    padding: 0.7rem 2rem;
+    border-radius: 20px;
+    font-weight: 500;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.btn-submit:hover, .btn-contact:hover {
+    background-color: var(--primary-purple-darker);
+    border-color: var(--primary-purple-darker);
+    color: #fff;
+}
+
+/* Navigation Styling */
+.info-section .navbar {
+    background-color: transparent; /* Ensure navbar itself is transparent */
+}
+
+.info-section .nav-link {
+    color: var(--link-color);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.info-section .nav-link:hover,
+.info-section .nav-link:focus {
+    color: var(--link-hover-color);
+}
+
+/* Specific style for contact button in nav */
+.btn-contact {
+    padding: 0.5rem 1.5rem; /* Adjust padding */
+}
+
+/* Heading Style */
+.heading-custom {
+    color: var(--heading-purple);
+}
+
+/* Graphic Placeholder Style */
+.graphic-placeholder {
+    margin-top: 2rem;
+    text-align: center; /* Center icon horizontally */
+}
+
+.graphic-custom {
+    /* If using Font Awesome */
+    color: var(--plane-color);
+    transform: rotate(-30deg); /* Rotate icon slightly */
+
+     /* If using an <img> instead of Font Awesome icon */
+     /* max-width: 300px; */
+     /* height: auto; */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) { /* Below large screens (tablets/phones) */
+    .form-section, .info-section {
+        min-height: 50vh; /* Give some min height when stacked */
+        padding: 3rem 1.5rem !important; /* Adjust padding */
+    }
+
+    .info-section .navbar {
+       margin-left: 0 !important; /* Reset margin */
+       margin-bottom: 2rem !important; /* Space below nav */
+       justify-content: center; /* Center nav items */
+    }
+
+     .logo {
+        align-self: center !important; /* Center logo on small screens */
+     }
+
+    .heading-custom {
+        text-align: center;
+    }
+    .graphic-placeholder {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 767.98px) { /* Below medium screens (phones) */
+     .form-custom .row > div {
+        margin-bottom: 1rem; /* Add space between stacked first/last name */
+     }
+     .form-custom .row > div:last-child {
+        margin-bottom: 0; /* Remove margin from last item in row */
+     }
+     .info-section .nav-link {
+         padding: 0.5rem 0.5rem; /* Reduce nav link padding */
+     }
+     .btn-contact {
+         padding: 0.5rem 1rem; /* Reduce contact button padding */
+     }
+}

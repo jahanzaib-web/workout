@@ -1,0 +1,551 @@
+/* Define Custom Colors */
+:root {
+    --dark-bg: #1a1a1a; /* Dark background */
+    --primary-green: #8d8d8d; /* Vibrant green */
+    --primary-green-darker: #808080; /* Darker green for hover */
+    --text-light: #f8f9fa;
+    --text-secondary: #adb5bd;
+}
+
+/* Floating Animation */
+@keyframes floatAnimation {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Adjust float height */
+    }
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Example font */
+}
+
+.fitness-promo {
+    background-color: var(--dark-bg);
+    /* Optional: Add subtle background texture/image */
+    /* background-image: url('path/to/your/texture.png'); */
+    padding: 5rem 0; /* Adjust vertical padding */
+    min-height: 70vh; /* Ensure minimum height */
+    color: var(--text-light);
+}
+
+/* Optional Background Texture Overlay */
+/*
+.background-texture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('path/to/subtle-texture.png');
+    opacity: 0.1;
+    z-index: 0;
+}
+*/
+
+.content-container {
+    z-index: 2; /* Ensure content is above background elements */
+}
+
+/* Green Circle Styling */
+.green-circle {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    right: -15%; /* Position off-screen to the right */
+    width: 55vw; /* Responsive width */
+    height: 55vw; /* Responsive height */
+    max-width: 700px; /* Max size */
+    max-height: 700px; /* Max size */
+    background-color: var(--primary-green);
+    border-radius: 50%;
+    transform: translateY(-50%); /* Fine-tune vertical centering */
+    z-index: 0; /* Behind the image, above the main bg */
+    opacity: 0.9; /* Slightly transparent */
+}
+
+/* Main Dumbbell Image Styling */
+.main-dumbbell-img {
+    position: absolute;
+    bottom: 0; /* Align to bottom */
+    right: 5%;  /* Adjust horizontal position */
+    width: auto;
+    height: 85%; /* Adjust size relative to section height */
+    max-height: 550px; /* Max height */
+    z-index: 1; /* Above the green circle */
+    object-fit: contain; /* Ensure aspect ratio is maintained */
+    animation: floatAnimation 4s ease-in-out infinite; /* Apply animation */
+}
+
+/* Logo */
+.logo img {
+    height: 40px; /* Adjust as needed */
+    filter: brightness(0) invert(1); /* Make placeholder logo white */
+}
+.logo span {
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* Headings */
+.text-primary-green {
+    color: var(--primary-green) !important;
+}
+
+/* Services List */
+.services ul li {
+    font-size: 1.1rem;
+}
+.services ul i {
+    font-size: 1.2rem; /* Slightly larger checkmark */
+}
+
+/* Discount Text */
+.discount {
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+}
+
+/* Contact Info Links */
+.contact-link {
+    transition: color 0.2s ease-in-out;
+}
+.contact-link:hover {
+    color: var(--primary-green) !important;
+}
+
+/* Contact Button */
+.btn-contact-us {
+    background-color: var(--primary-green);
+    color: var(--text-light);
+    padding: 0.8rem 2rem;
+    border-radius: 50px; /* Pill shape */
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-contact-us:hover {
+    background-color: var(--primary-green-darker);
+    color: var(--text-light);
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) { /* Below Large */
+    .green-circle {
+        width: 70vw;
+        height: 70vw;
+        right: -25%;
+    }
+    .main-dumbbell-img {
+        height: 75%;
+        right: 0%;
+        max-height: 450px;
+    }
+    .fitness-promo {
+        padding: 4rem 0;
+    }
+}
+
+@media (max-width: 767.98px) { /* Below Medium */
+    .fitness-promo {
+        text-align: center; /* Center text content */
+        padding: 3rem 0 10rem; /* Add padding at bottom for image */
+        overflow: visible; /* Allow image to overflow if needed */
+    }
+
+    .content-left {
+        /* Ensure content is not hidden by image */
+        position: relative;
+        z-index: 3;
+    }
+
+     .logo {
+        justify-content: center; /* Center logo */
+     }
+
+    .green-circle {
+        /* Option 1: Hide circle */
+        /* display: none; */
+
+        /* Option 2: Make it smaller / reposition */
+         width: 100vw;
+         height: 100vw;
+         right: -50%;
+         top: 70%; /* Position lower */
+         opacity: 0.5;
+    }
+
+    .main-dumbbell-img {
+        /* Position image below content */
+        height: auto; /* Auto height */
+        width: 70%; /* Adjust width */
+        max-width: 300px;
+        position: absolute; /* Change from fixed positioning */
+        bottom: -50px; /* Position below the section padding */
+        left: 50%;
+        transform: translateX(-50%); /* Center horizontally */
+        animation: none; /* Optionally disable animation on mobile */
+        z-index: 2; /* Ensure its above circle if visible */
+    }
+
+    .display-3 {
+        font-size: 2.8rem; /* Adjust heading size */
+    }
+     .lead {
+        font-size: 1rem;
+     }
+
+    .contact-info {
+        flex-direction: column !important; /* Stack contact items */
+        align-items: center !important; /* Center items */
+    }
+    .contact-info > div {
+        margin-bottom: 1rem !important; /* Space between links and button */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+     .contact-info .contact-link {
+        margin-right: 0 !important;
+        margin-bottom: 0.5rem;
+     }
+    .btn-contact-us {
+        width: 80%;
+        max-width: 250px;
+        margin-left: 0 !important; /* Reset margin */
+        margin-top: 1rem !important;
+    }
+}
+/* workout section */
+/* Use a specific font - Orbitron is a placeholder, find one closer if needed */
+.font-techno {
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase; /* Match uppercase style */
+    letter-spacing: 1px; /* Slight letter spacing */
+}
+
+/* Custom red color */
+.text-custom-red {
+    color: #8d8d8d; /* Vibrant Red */
+}
+.bg-custom-red {
+    background-color: #6c6d6d; /* Vibrant Red */
+}
+
+.workout-section {
+    overflow: hidden; /* Prevent content overflow issues */
+}
+
+.text-content {
+    /* Add some vertical padding if needed */
+}
+
+/* Style for the top tag */
+.workout-tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: clamp(0.8rem, 2vw, 1rem); /* Responsive font size */
+    font-weight: 600;
+}
+.workout-tag span {
+    margin-left: 0.5rem;
+    font-weight: 900; /* Bolder arrows */
+}
+
+/* Style for the main heading */
+.main-heading {
+    font-weight: 700;
+    font-size: clamp(2.5rem, 7vw, 4.5rem); /* Responsive font size */
+    line-height: 1.1;
+}
+
+/* Style for the sub-heading */
+.sub-heading {
+    font-weight: 500;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    line-height: 1.4;
+}
+
+/* Style for the trainer name */
+.trainer-name {
+    margin-top: 4rem; /* More space before name */
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+}
+
+/* Right column styling for background stripes */
+.right-column-bg {
+    position: relative;
+    min-height: 400px; /* Ensure minimum height, especially on mobile */
+    align-self: stretch; /* Make column stretch vertically */
+    display: flex; /* Use flex to center image if needed */
+    align-items: center; /* Vertically center image */
+    justify-content: center; /* Horizontally center image */
+}
+
+/* Pseudo-element for the diagonal stripes */
+.right-column-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Diagonal stripes pattern */
+    background: linear-gradient(
+        135deg,
+        #727473 25%, /* Red */
+        #000000 25%, /* Black */
+        #000000 50%, /* Black */
+        #797a7a 50%, /* Red */
+        #898b89 75%, /* Red */
+        #000000 75%, /* Black */
+        #000000 100% /* Black */
+    );
+    background-size: 80px 80px; /* Adjust size of the repeating pattern */
+    z-index: 1; /* Behind the image */
+}
+
+.workout-image {
+    position: relative; /* Ensure image is layerable */
+    z-index: 2; /* Place image above the ::before pseudo-element */
+    display: block; /* Remove extra space below image */
+    max-height: 100vh; /* Limit image height */
+    width: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Ensure image doesn't overflow */
+    height: 100%; /* Try to fill height */
+    object-fit: cover; /* Cover the area, may crop */
+    object-position: center top; /* Adjust focus if needed */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    .workout-section .row {
+        align-items: stretch; /* Allow columns to have different heights when stacked */
+    }
+    .text-content {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+    .right-column-bg {
+        min-height: 450px; /* Ensure enough space for image on mobile */
+    }
+    .trainer-name {
+        margin-top: 2rem; /* Less margin on mobile */
+    }
+    .workout-image {
+       object-fit: contain; /* Maybe contain is better on mobile */
+       max-height: 450px; /* Limit height */
+       width: 100%;
+       height: auto;
+    }
+}
+/* new section */
+/* Import a font similar to the image - Example: Oswald or Anton */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap'); /* Example font */
+
+body {
+    background-color: #f8f9fa; /* Light background for contrast */
+}
+
+.workout-banner {
+    background-color: #080808; /* Dark background */
+    color: #fff;
+    min-height: 60vh; /* Minimum height */
+    display: flex;
+    align-items: center;
+    /* If you have a background image with streaks: */
+    /* background-image: url('path/to/your/background-streaks.jpg'); */
+    /* background-size: cover; */
+    /* background-position: center; */
+}
+
+/* Container to keep content within bounds */
+.content-container {
+    position: relative; /* Needed for z-index stacking */
+    z-index: 2; /* Ensure content is above pseudo-element decorations */
+}
+
+/* Custom Blue Color */
+.text-custom-blue {
+    color: grey; /* Adjust this blue to match the image */
+}
+
+/* Title Styling */
+.workout-title {
+    font-size: calc(2.5rem + 2.5vw); /* Responsive font size */
+    line-height: 1.1;
+    letter-spacing: 0.05em;
+    font-family: 'Oswald', sans-serif; /* Example bold font */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.beginner-title {
+    font-size: calc(2rem + 2vw); /* Responsive font size */
+    line-height: 1.1;
+    transform: skewX(-8deg); /* Slight skew */
+    display: inline-block; /* Needed for transform */
+    font-family: 'Oswald', sans-serif; /* Example bold font */
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Button Styling */
+.subscriber-button {
+    padding: 0.6rem 1.5rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.subscriber-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.subscriber-button i {
+    vertical-align: middle; /* Align icon better */
+}
+
+/* Image Styling */
+.workout-image {
+    max-height: 500px; /* Limit image height */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: contain;
+    /* Slightly more advanced positioning for overlap effect (optional) */
+    /* On larger screens, pull image slightly left */
+    /* @media (min-width: 768px) {
+        position: absolute;
+        right: -15px; // Adjust as needed
+        bottom: 0;
+        max-height: 110%; // Allow slight overflow if needed
+    } */
+}
+
+/* --- Decorative Elements --- */
+
+/* Base for Lines */
+.decorative-line {
+    position: absolute;
+    width: 100px; /* Adjust size */
+    height: 15px; /* Adjust thickness */
+    background-color: grey; /* Use custom blue */
+    border-radius: 10px;
+    z-index: 0; /* Behind content */
+}
+
+.decorative-line.top-left-diag {
+    top: 20px;
+    left: -30px;
+    transform: rotate(-45deg);
+}
+
+.decorative-line.top-right-diag {
+    top: 20px;
+    right: -30px;
+    transform: rotate(45deg);
+}
+
+/* Base for Dots */
+.decorative-dots {
+    position: absolute;
+    width: 40px; /* Adjust size */
+    height: 40px; /* Adjust size */
+    background-image: radial-gradient(circle, white 2px, transparent 3px);
+    background-size: 10px 10px; /* Spacing of dots */
+    z-index: 0; /* Behind content */
+}
+
+.decorative-dots.top-left {
+    top: 60px; /* Adjust position */
+    left: 40px; /* Adjust position */
+}
+
+.decorative-dots.bottom-right {
+    bottom: 20px; /* Adjust position */
+    right: 40px; /* Adjust position */
+     opacity: 0.5; /* Often faded */
+}
+
+/* Simple Streaks Simulation (Optional) */
+.streak {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%; /* Extend beyond view */
+    height: 100%;
+    opacity: 0.15; /* Subtle */
+    z-index: 0;
+    pointer-events: none; /* Don't interfere with clicks */
+}
+
+.streak-blue {
+    background: linear-gradient(45deg, transparent 40%, rgba(0, 86, 179, 0.5) 50%, transparent 60%);
+    transform: translateX(-30%) translateY(-10%); /* Position */
+}
+
+.streak-gold {
+     background: linear-gradient(45deg, transparent 45%, rgba(218, 165, 32, 0.4) 55%, transparent 65%); /* Gold-like color */
+     transform: translateX(-10%) translateY(10%); /* Position */
+     animation: streakMove 20s linear infinite alternate; /* Slow movement */
+}
+
+@keyframes streakMove {
+    from { transform: translateX(-10%) translateY(10%) rotate(0deg); }
+    to { transform: translateX(-15%) translateY(5%) rotate(2deg); }
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 767.98px) {
+    .workout-banner {
+        min-height: 80vh; /* Taller on mobile */
+        text-align: center; /* Center everything */
+    }
+
+    .workout-title {
+        font-size: calc(2rem + 4vw); /* Slightly larger relative size on mobile */
+    }
+
+    .beginner-title {
+        font-size: calc(1.8rem + 3.5vw);
+        transform: skewX(0deg); /* Remove skew on mobile if desired */
+    }
+
+    .workout-image {
+        max-height: 300px; /* Smaller image on mobile */
+        margin-top: 2rem; /* Add space above image when stacked */
+        position: relative; /* Reset position */
+        right: auto;
+        bottom: auto;
+    }
+
+    .decorative-line, .decorative-dots {
+       display: none; /* Hide decorative elements on small screens for simplicity */
+    }
+
+    .streak {
+        opacity: 0.1; /* Make streaks even more subtle */
+    }
+}
+
+@media (max-width: 575.98px) {
+     .workout-title {
+        font-size: calc(1.8rem + 4vw);
+    }
+    .beginner-title {
+        font-size: calc(1.6rem + 3.5vw);
+    }
+     .subscriber-button {
+        width: 80%; /* Make button wider */
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+}
